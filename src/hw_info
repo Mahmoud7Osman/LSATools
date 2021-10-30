@@ -1,0 +1,6 @@
+echo "CPU             :"$(lscpu | cut -d: -f2 | grep Hz -m 1)
+echo "CPU Max GHz     :"$(lscpu | grep max | cut -d: -f2)
+echo "CPU Byte Order  :" $(lscpu | grep  Order | cut -d: -f2)
+cat /proc/cpuinfo | grep vendor_id | uniq
+iostat -c
+cat /proc/meminfo | head -8

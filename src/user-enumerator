@@ -1,0 +1,1 @@
+cat /etc/passwd | cut -d: -f1 | while read user; do printf "Found User $user with ID $(id -u $user), Groups ID: $(id -G $user)\n"; done
