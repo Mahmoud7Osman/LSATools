@@ -1,0 +1,1 @@
+cat /etc/passwd | while read username; do printf "User $username " | cut -d: -f1 | sed -z s/"\n"//g; printf ":\t" ;printf "$username" | cut -d: -f7; done
