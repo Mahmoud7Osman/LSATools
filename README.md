@@ -2,6 +2,7 @@
 <h3>How to Use :</h3>
 <ol>
    <li>Star This Repository</li>
+   <li>Clone This Repo By Using git clone Command</li>
    <li>Execute runme.sh</li>
    <li>Read The Menu, Enjoy it</li>
 </ol>
