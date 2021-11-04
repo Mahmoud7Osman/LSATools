@@ -1,5 +1,9 @@
-<ul>
-   <li>Clear Menu</li>
-   <li>Easy To Use</li>
-   <li>Secure, Do not do any major work on your System Without Your Command-Line Passed Permission Or Force</li>
-</ul>
+<h1>Amazing Scripts Useful For System Administrators, Driven By An Easy To Use Menu Based Program.</h1>
+<h3>How to Use :</h3>
+<ol>
+   <li>Star This Repository</li>
+   <li>Execute runme.sh</li>
+   <li>Read The Menu, Enjoy it</li>
+</ol>
+
+<h7>Good Luck</h7>
