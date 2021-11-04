@@ -6,9 +6,6 @@ blue="\033[0;94m"         # Blue
 purple="\033[0;95m"       # Purple
 cyan="\033[0;36m"         # Cyan
 white="\033[0;97m"        # White
-
-printf "$green[~]$white Those Scripts Are the Result Of My Learning and Training in The Linux System Administration Field. It May Help You.\n"
-
 ban="
  ____    _    ____
 $red/ ___|  / \  / ___|
@@ -16,6 +13,8 @@ $blue\___ \ / _ \ \___ \\
 $green ___) / ___ \ ___) |
 $cyan|____/_/   \_\____/ $green System Administrator's Basic Scripts
 $white
+
+                                ${cyan} This Program is Coded By Mahmoud Osman (${red}MLT${cyan})
 "
 printf "$ban"
 printf "$blue[_]$white Enter The Mission Number: \n\n"
@@ -25,6 +24,7 @@ menu="
     ${red}3: ${white}Enumerate Users Groups IDs                        (src/user-enumerator)
     ${red}4: ${white}Show Mounted Devices and It's Path                (scr/mounted-device-shower)
     ${red}5: ${white}Enumerate Users Login Shells                      (scr/users-login-shell)
+    ${red}6: ${white}Execute A Program On System Startup               (scr/add-rc-command)
 
     ${cyan}m: ${white}Print This Menu Again
     ${cyan}b: ${white}Print Program Banner
@@ -59,6 +59,10 @@ elif [ "$MN" == 4 ];then
    src/mounted-device-shower
 elif [ "$MN" == 5 ];then
    src/users-login-shell
+elif [ "$MN" == 6 ];then
+   printf "Enter Program Path Followed By It's Arguments : "
+   read cmd
+   src/add-rc-command "$cmd"
 fi
 }
 while [ 1 ];do loop; done

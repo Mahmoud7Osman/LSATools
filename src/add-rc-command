@@ -1,0 +1,10 @@
+red="\033[0;91m"
+white="\033[0;97m"
+green="\033[0;92m"
+
+if [ ! -f "$(echo $1 | head -n1 | awk '{print $1;}')" ];then
+   printf "$red[-]$white Program Not Found\n"
+   exit 1
+fi
+
+printf "$1\n" >> /etc/rc.local
