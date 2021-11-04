@@ -38,7 +38,7 @@ menu="
 "
 printf "$menu"
 loop(){
-printf "\nPress Something : "
+printf "\n${white}(${red}SAS${white})${purple} <-:${white} "
 read -n 1 MN
 echo
 if [ "$MN" == 1 ];then
