@@ -1,3 +1,7 @@
+if [ -f ".setexebit" ];then
+    chmod +x src/*
+fi
+
 black="\033[0;30m"        # Black
 red="\033[0;91m"          # Red
 green="\033[1;92m"        # Green
