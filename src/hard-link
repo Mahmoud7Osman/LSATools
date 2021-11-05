@@ -1,0 +1,2 @@
+if [ $# -ge 2 ];then ln "$1" "$2" 2>/dev/null;exit 0;fi
+printf "Usage: $0 <Filename> <Link Name>"

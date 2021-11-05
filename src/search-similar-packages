@@ -1,0 +1,10 @@
+if [ -x /usr/lib/command-not-found ]; then
+                   /usr/lib/command-not-found -- "$1"
+                   exit
+elif [ -x /usr/share/command-not-found/command-not-found ]; then
+                   /usr/share/command-not-found/command-not-found -- "$1"
+                   exit
+else
+                   printf "%s: command not found\n" "$1" >&2
+
+fi
