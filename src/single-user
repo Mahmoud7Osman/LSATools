@@ -1,0 +1,3 @@
+printf "Switching Into Single User Mode..."
+sleep 1
+telinit 1

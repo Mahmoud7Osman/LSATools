@@ -1,0 +1,5 @@
+if [ "$1" == '' ];then
+   iwlist wlan0 scan
+   exit 0
+fi
+iwlist wlan0 scan | grep "$1" --color

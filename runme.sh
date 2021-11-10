@@ -28,10 +28,13 @@ menu="
     ${red}3: ${white}Enumerate Users Groups IDs                        (src/user-enumerator)
     ${red}4: ${white}Show Mounted Devices and It's Path                (src/mounted-device-shower)
     ${red}5: ${white}Enumerate Users Login Shells                      (src/users-login-shell)
-    ${red}6: ${white}Execute A Program On System Startup               (src/add-rc-command)
+    ${red}6: ${white}Execute A Command On System Startup               (src/add-rc-command)
     ${red}7: ${white}Search For A Library Or A Command                 (src/search-similar-packages)
     ${red}8: ${white}Perform a Symbolic Link On A File                 (src/symbolic-link)
     ${red}9: ${white}Perform a Hard Link On A File                     (src/hard-link)
+   ${red}10: ${white}Change Run Level Into Single User Mode            (src/single-user)
+   ${red}11: ${white}Add A Startup Script to init.d and rc*.d          (src/add-startup-script)
+   ${red}12: ${white}Get Informations About Wireless Networks          (src/wifi-scan)
 
     ${green}i: ${white}Open Input To Execute a Command With $SHELL
 
@@ -49,7 +52,12 @@ aboutme(){
 }
 loop(){
 printf "\n${white}(${red}SAS${white})${purple} <-:${white} "
-read -n 1 MN
+read -n 1 M
+MN=
+if [ "$M" == 1 ];then
+   read -n 1 MN
+fi
+MN=${M}${MN}
 echo
 if [ "$MN" == 1 ];then
    printf "Enter Folder Path To Start The Operation On :  "
@@ -93,7 +101,16 @@ elif [ "$MN" == 9 ];then
    printf "Enter File Link Name : "
    read lf
    src/hard-link "$of" "$lf"
-
+elif [ "$MN" == 10 ];then
+   src/single-user
+elif [ "$MN" == 11 ];then
+   printf "Script Name Or Path : "
+   read sp
+   src/add-startup-script "$sp"
+elif [ "$MN" == 12 ];then
+   printf "Enter The Information You Want to see (Blank For Everything) : "
+   read INFO
+   src/wifi-scan "$INFO"
 elif [ "$MN" == 'i' ];then
    printf "CMD> "
    read -e cmd
