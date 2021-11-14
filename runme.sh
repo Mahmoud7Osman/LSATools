@@ -17,11 +17,8 @@ $blue\___ \ / _ \ \___ \\
 $green ___) / ___ \ ___) |
 $cyan|____/_/   \_\____/ $green System Administrator's Basic Scripts
 $white
-
-                                ${cyan} This Program is Coded By Mahmoud Osman (${red}MLT${cyan})
 "
 printf "$ban"
-printf "$blue[_]$white Enter The Mission Number: \n\n"
 menu="
     ${red}1: ${white}Eliminate Embedded Spaces In Files & Folders Name (src/filename-space-remover)
     ${red}2: ${white}CPU And Memory Information                        (src/hw_info)
@@ -35,9 +32,13 @@ menu="
    ${red}10: ${white}Change Run Level Into Single User Mode            (src/single-user)
    ${red}11: ${white}Add A Startup Script to init.d and rc*.d          (src/add-startup-script)
    ${red}12: ${white}Get Informations About Wireless Networks          (src/wifi-scan)
+   ${red}13: ${white}Scheduled Shutdown With A Notifier                (src/scheduled-poweroff)
+   ${red}14: ${white}Power-off Device without Syncing Disks/Storages
+   ${red}15: ${white}Display the kernel routing tables
+   ${red}16: ${white}Show Listening Sockets
+   ${red}17: ${white}Display summary statistics for each protocol
 
-    ${green}i: ${white}Open Input To Execute a Command With $SHELL
-
+    ${cyan}i: ${white}Open Input To Execute a Command With $SHELL
     ${cyan}m: ${white}Print This Menu Again
     ${cyan}b: ${white}Print Program Banner
     ${cyan}r: ${white}Print Banner And Menu Again
@@ -111,6 +112,24 @@ elif [ "$MN" == 12 ];then
    printf "Enter The Information You Want to see (Blank For Everything) : "
    read INFO
    src/wifi-scan "$INFO"
+elif [ "$MN" == 13 ];then
+   printf "Enter Shutdown Time (12 Hour Format '00:00') : "
+   read tim
+   printf "Enter Message To Notify Users (Ex: Going Down For Emergency Disk Repair) : "
+   read notf
+   src/scheduled-poweroff -h "$tim" "$notf"
+elif [ "$MN" == 14 ];then
+   printf "Risk Of Data Loss or Corruption, Are You Sure ? Press Enter To Proceed Or CTRL-C To Cancel : "
+   read
+   printf "For Security Reasons, Type Random 5 letters to halt the system without syncing or CTRL-C To Cancel : "
+   read -n 5
+   halt -n
+elif [ "$MN" == 15 ];then
+    netstat -r
+elif [ "$MN" == 16 ];then
+    netstat -l
+elif [ "$MN" == 17 ];then
+    netstat -s
 elif [ "$MN" == 'i' ];then
    printf "CMD> "
    read -e cmd

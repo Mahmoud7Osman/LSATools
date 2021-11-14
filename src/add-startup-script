@@ -16,4 +16,4 @@ if [ "$RLEVELS" == '' ] || [ "SLEVELS" == '' ] || [ "$PN" == '' ] || [ "$SN" == 
    update-rc.d $(echo "$1" | sed s/'\/'/"\n"/g | tail -1) defaults
    exit 0
 fi
-update-rc.d "$1" start $PN $RLEVELS . stop $SN $SLEVELS
+update-rc.d "$1" start $PN $RLEVELS . stop $SN $SLEVELS .

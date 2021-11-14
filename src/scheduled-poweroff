@@ -1,0 +1,6 @@
+if [ "$1" == '' ] || [ "$2" == '' ];then
+  printf "Usage: $0 <12H Time>  <Message For Users>"
+  exit 1
+fi
+
+shutdown -h "$1" "$2"
